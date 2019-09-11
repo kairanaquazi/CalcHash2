@@ -1,4 +1,4 @@
-# calc-hash
+# CalcHash
 
 A plugin for the file manager `fman` that computes the hash of the selected files and copies the results to the clipboard.
 
