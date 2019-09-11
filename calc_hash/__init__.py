@@ -21,7 +21,7 @@ class CalcHash(DirectoryPaneCommand):
             hmeth = hmeth.strip()
             if hmeth not in hash_map.keys():
                 response = show_alert("Invalid hash method.")
-                break
+                return
             if okay:
                 for fl in chosen_files:
                     if not is_dir(fl):
