@@ -29,12 +29,21 @@ class CalcHash(DirectoryPaneCommand):
             if hmeth not in hash_map.keys():
                 response = show_alert("Invalid hashing method. No action taken.")
                 return
+        s = None
+        if hmeth in ["shake_128", "shake_256"]:
+            s, okay = show_prompt(
+                "Enter the size of the hash:"
+            )
+            if not s.isnumeric():
+                response = show_alert("Invalid integer. Goodbye!")
+                return
+            s = int(s)
 
         # perform the actual hash calculations
         num_selected_files = len(chosen_files)
         for fl in chosen_files:
             fl = as_human_readable(fl)
-            fhash = file_hash(fl, hmeth)
+            fhash = file_hash(fl, hmeth, s)
             hstr = f"{fl}: {fhash}"
             results.append(hstr)
             all_results = "\n".join(results)
@@ -48,9 +57,11 @@ class CalcHash(DirectoryPaneCommand):
         response = show_alert(msg)
 
 
-def file_hash(filename, method="sha1"):
+def file_hash(filename, method="sha1", s=None):
     hashfunc = hash_map[method]()
     with open(filename, "rb") as f:
         for chunk in iter(lambda: f.read(8192), b""):
             hashfunc.update(chunk)
-    return hashfunc.hexdigest()
+    if s is not None:
+        return hashfunc.hexdigest()
+    return hashfunc.hexdigest(s)
