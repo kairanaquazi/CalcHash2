@@ -1,4 +1,6 @@
 # CalcHash
+Fork of [Breisfeld's CalcHash](https://github.com/breisfeld/CalcHash) that patches some issues regarding shake 128 and 256.
+
 
 A plugin for the file manager `fman` that computes the hash of the selected files and copies the results to the clipboard.
 
