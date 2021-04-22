@@ -50,10 +50,10 @@ class CalcHash(DirectoryPaneCommand):
             clipboard.set_text(all_results)
         if num_selected_files == 1:
             msg = (
-                f"The path and {hmeth} hash of the specified file has been copied to your clipboard as well as being attached here:\n{all_results}"
+                f"The path and {hmeth} hash of the specified file has been copied to your clipboard as well as being attached here:\n\n{all_results}"
             )
         else:
-            msg = f"The paths and {hmeth} hashes of the {num_selected_files} selected files have been copied to your clipboard as well as being attached here:\n{all_results}"
+            msg = f"The paths and {hmeth} hashes of the {num_selected_files} selected files have been copied to your clipboard as well as being attached here:\n\n{all_results}"
         response = show_alert(msg)
 
 
