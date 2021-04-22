@@ -53,7 +53,7 @@ class CalcHash(DirectoryPaneCommand):
                 f"The path and {hmeth} hash of the specified file has been copied to your clipboard."
             )
         else:
-            msg = f"The paths and {hmeth} hashes of the {num_selected_files} selected files have been copied to your clipboard."
+            msg = f"The paths and {hmeth} hashes of the {num_selected_files} selected files have been copied to your clipboard as well as being attached here:\n{all_results}"
         response = show_alert(msg)
 
 
