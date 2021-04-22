@@ -62,6 +62,6 @@ def file_hash(filename, method="sha1", s=None):
     with open(filename, "rb") as f:
         for chunk in iter(lambda: f.read(8192), b""):
             hashfunc.update(chunk)
-    if s is not None:
+    if s is None:
         return hashfunc.hexdigest()
     return hashfunc.hexdigest(s)
